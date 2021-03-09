@@ -2,6 +2,8 @@
 title: common-cmd
 date: 2020-08-12 14:51:45
 tags: linux
+categories:
+  - 杂项
 ---
 
 记录一些不常用又会用到的命令
