@@ -186,6 +186,13 @@
                         </span>
                     
                     
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a>
+                            
+                        </span>
+                    
                 </div>
             
         </header>
@@ -195,6 +202,7 @@
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># brew源</span></span><br><span class="line">git -C <span class="string">&quot;<span class="subst">$(brew --repo)</span>&quot;</span> remote set-url origin url</span><br><span class="line"><span class="comment"># 官方源 https://github.com/Homebrew/brew.git</span></span><br><span class="line"><span class="comment"># 清华源 https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># brew-core源</span></span><br><span class="line">git -C <span class="string">&quot;<span class="subst">$(brew --repo homebrew/core)</span>&quot;</span> remote set-url origin url</span><br><span class="line"><span class="comment"># 官方源 https://github.com/Homebrew/homebrew-core.git</span></span><br><span class="line"><span class="comment"># 清华源 https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># brew-cask源</span></span><br><span class="line">git -C <span class="string">&quot;<span class="subst">$(brew --repo homebrew/cask)</span>&quot;</span> remote set-url origin url</span><br><span class="line"><span class="comment"># 官方源 https://github.com/Homebrew/homebrew-cask.git</span></span><br><span class="line"><span class="comment"># 清华源 https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git</span></span><br></pre></td></tr></table></figure>
 
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加socks代理</span></span><br><span class="line"><span class="built_in">export</span> ALL_PROXY=socks5://127.0.0.1:port brew update</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>安装时可以加上 –verbose查看安装详情</p>
 </blockquote>
@@ -254,8 +262,6 @@
             
                 <a class="prev" rel="prev" href="/2020/08/12/common-cmd/">common-cmd</a>
             
-            
-            <a class="next" rel="next" href="/2020/06/05/hello-world/">你好，世界</a>
             
         </section>
 
