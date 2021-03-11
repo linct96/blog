@@ -12,7 +12,7 @@
 
 
 
-<title>common-cmd | linct&#39;s blog</title>
+<title>proxychains-ng的使用 | linct&#39;s blog</title>
 
 
 
@@ -173,7 +173,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">common-cmd</h1>
+            <h1 class="post-title">proxychains-ng的使用</h1>
             
                 <div class="post-meta">
                     
@@ -182,7 +182,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">August 12, 2020&nbsp;&nbsp;14:51:45</a>
+                        Date: <a href="#">March 11, 2021&nbsp;&nbsp;19:54:58</a>
                         </span>
                     
                     
@@ -198,13 +198,14 @@
         </header>
 
         <div class="post-content">
-            <p>记录一些不常用又会用到的命令</p>
-<h2 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看git用户信息</span></span><br><span class="line">$ git config user.name</span><br><span class="line">$ git config user.email</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置git用户信息</span></span><br><span class="line">$ git config --global user.name <span class="string">&quot;zhangsan&quot;</span></span><br><span class="line">$ git config --global user.email <span class="string">&quot;zhangsan@email.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置 git 代理(socks5 和 http 两种方式)</span></span><br><span class="line">$ git config --global http.proxy <span class="string">&#x27;socks5://127.0.0.1:port&#x27;</span> </span><br><span class="line">$ git config --global http.proxy <span class="string">&#x27;http://127.0.0.1:port&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 取消 git 代理</span></span><br><span class="line">$ git config --global --<span class="built_in">unset</span> http.proxy</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+            <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">brew install proxychains-ng</span><br><span class="line"></span><br><span class="line"><span class="comment"># 借助代理安装</span></span><br><span class="line">ALL_PROXY=socks5://127.0.0.1:port brew install proxychains-ng</span><br></pre></td></tr></table></figure>
 
-
-
-<h2 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 登录npm</span></span><br><span class="line">$ npm login</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看npm用户信息</span></span><br><span class="line">$ npm whoami</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看已安装的package</span></span><br><span class="line">$ npm list (-g) --depth=0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<h2 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改默认配置文件</span></span><br><span class="line">vim /usr/<span class="built_in">local</span>/etc/proxychains.conf</span><br></pre></td></tr></table></figure>
+<p>在最底部添加</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过 socks5 代理</span></span><br><span class="line">socks5 127.0.0.1 port</span><br></pre></td></tr></table></figure>
+<p>也可将<code>socks5</code>替换为<code>http</code>走 http 代理的方式</p>
+<h2 id="关闭-sip"><a href="#关闭-sip" class="headerlink" title="关闭 sip"></a>关闭 sip</h2><p>由于最新的 macos 系统不允许用户修改具有保护权限的文件夹。需要用户进入 recovery 模式 =&gt; 实用工具 =&gt; 终端 输入如下命令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关闭 sip</span></span><br><span class="line">csrutil <span class="built_in">disable</span></span><br><span class="line"><span class="comment"># 开启 sip</span></span><br><span class="line">csrutil <span class="built_in">enable</span></span><br></pre></td></tr></table></figure>
 
 
         </div>
@@ -220,7 +221,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://linct.xyz/2020/08/12/common-cmd/">https://linct.xyz/2020/08/12/common-cmd/</a></span>
+                        <span><a href="https://linct.xyz/2021/03/11/proxychains-ng%E7%9A%84%E4%BD%BF%E7%94%A8/">https://linct.xyz/2021/03/11/proxychains-ng%E7%9A%84%E4%BD%BF%E7%94%A8/</a></span>
                     </p>
                 
                 
@@ -234,7 +235,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/linux/"># linux</a>
+                        <a href="/tags/mac/"># mac</a>
                     
                         
                 </span>
@@ -247,10 +248,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2021/03/11/proxychains-ng%E7%9A%84%E4%BD%BF%E7%94%A8/">proxychains-ng的使用</a>
             
-            
-            <a class="next" rel="next" href="/2020/08/12/iterm2-zsh/">iTerm2+zsh</a>
+            <a class="next" rel="next" href="/2020/08/12/common-cmd/">common-cmd</a>
             
         </section>
 
