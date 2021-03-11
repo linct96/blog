@@ -17,7 +17,15 @@ $ git config user.email
 
 # 设置git用户信息
 $ git config --global user.name "zhangsan"
-$ git config --global user.email "zhangsan@email.com" 
+$ git config --global user.email "zhangsan@email.com"
+
+# 设置 git 代理(socks5 和 http 两种方式)
+$ git config --global http.proxy 'socks5://127.0.0.1:port' 
+$ git config --global http.proxy 'http://127.0.0.1:port'
+
+# 取消 git 代理
+$ git config --global --unset http.proxy
+
 ```
 
 
